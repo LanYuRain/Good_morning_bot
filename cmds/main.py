@@ -9,9 +9,11 @@ class Main(Cog_extension):
         await ctx.send(f"Testing {msg}")
     
     @commands.command()
-    async def ai(self,ctx, *,msg):
+    async def chat(self,ctx, *,msg):
+        user_name = ctx.author
         user_id = ctx.author.id
-        result = AIChat(user_id=user_id,user_msg=msg)
+        result = AIChat(user_name=user_name,user_id=user_id,user_msg=msg)
+        await ctx.send(result)
 
 async def setup(bot):
     await bot.add_cog(Main(bot))
