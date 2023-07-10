@@ -1,5 +1,5 @@
 #前置設定
-import discord, json, os, time
+import discord, json, os
 from discord.ext import commands
 
 with open(file="./JSONFiles/setting.json", mode = "r", encoding="utf8") as jfile:
