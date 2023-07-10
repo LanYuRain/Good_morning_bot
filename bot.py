@@ -23,27 +23,27 @@ async def load(ctx, extension): #放置extension參數，作為指令的參數, 
     try:
         await bot.load_extension(f"cmds.{extension}")
         await ctx.send(f"Loaded {extension} done.")
-    except:
+    except discord.ext.commands.ExtensionNotFound:
         print(f"User inputted a nonexistent extension: {extension}.")
-        await ctx.send(f"{extension} is not esist.")
+        await ctx.send(f"{extension} is not exist.")
 
 @bot.command() #卸載Cog
 async def unload(ctx, extension):
     try:
         await bot.unload_extension(f"cmds.{extension}")
         await ctx.send(f"Unloaded {extension} done.")
-    except:
+    except discord.ext.commands.ExtensionNotFound:
         print(f"User inputted a nonexistent extension: {extension}.")
-        await ctx.send(f"{extension} is not esist.")
+        await ctx.send(f"{extension} is not exist.")
 
 @bot.command() #重載Cog
 async def reload(ctx, extension):
     try:
         await bot.reload_extension(f"cmds.{extension}")
         await ctx.send(f"Reloaded {extension} done.")
-    except:
+    except discord.ext.commands.ExtensionNotFound:
         print(f"User inputted a nonexistent extension: {extension}.")
-        await ctx.send(f"{extension} is not esist.")
+        await ctx.send(f"{extension} is not exist.")
 
 async def load_extension():#讀取Cog
     for filename in os.listdir("./cmds"):

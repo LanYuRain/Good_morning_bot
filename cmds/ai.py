@@ -15,6 +15,7 @@ class AI(Cog_extension):
     #速率與對話限制
     max_context_len = 29 #最大對話紀錄長度
     cmd_cd_time = 30 #指令冷卻時間
+    
     @commands.command()
     async def chat(self,ctx, *,msg):
         #讀取json檔案
