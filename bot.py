@@ -1,12 +1,14 @@
 #前置設定
-import discord, json, os
+import discord, json, os, time
 from discord.ext import commands
 
-with open(file="setting.json", mode = "r", encoding="utf8") as jfile:
+with open(file="./JSONFiles/setting.json", mode = "r", encoding="utf8") as jfile:
     jdata = json.load(jfile)#讀取json檔案
 
 intents = discord.Intents.all() #必要設定
 bot = commands.Bot(command_prefix="^", intents = intents) #指令前綴是^
+
+bot.heartbeat_timeout = 120
 
 #啟動事件
 
